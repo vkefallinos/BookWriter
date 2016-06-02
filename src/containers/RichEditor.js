@@ -5,7 +5,8 @@ import {
   Entity,
   RichUtils,
   ContentState,
-  CompositeDecorator
+  CompositeDecorator,
+  AtomicBlockUtils
 } from 'draft-js';
 import {
   getSelectionRange,
@@ -55,7 +56,7 @@ class RichEditor extends Component {
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
     this.insertImage = (file) => this._insertImage(file);
     this.blockRenderer = (block) => {
-      if (block.getType() === 'media') {
+      if (block.getType() === 'atomic') {
         return {
           component: ImageComponent
         };
@@ -111,9 +112,15 @@ class RichEditor extends Component {
   }
 
   _insertImage(file) {
-    this.setState({
+    /*this.setState({
       editorState: insertImage(this.state.editorState, file)
-    });
+    });*/
+    const entityKey = Entity.create('atomic', 'IMMUTABLE', {src: URL.createObjectURL(file)});
+		this.onChange(AtomicBlockUtils.insertAtomicBlock(
+        this.state.editorState,
+        entityKey,
+        ' '
+      ));
   }
 
   _handleFileInput(e) {
