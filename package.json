@@ -1,5 +1,5 @@
 {
-  "name": "react-text-editor",
+  "name": "book-writer",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/andrewcoelho/react-text-editor.git"
+    "url": "https://github.com/vkefallinos/book-writer.git"
   },
   "keywords": [
     "react",
@@ -17,19 +17,22 @@
     "rich text editor",
     "draft",
     "draft-js",
-    "facebook notes"
+    "facebook notes",
+    "book"
   ],
-  "author": "Andrew Coelho <info@andrewcoelho.com>",
+  "author": "Vasilis Kefallinos <vkefallinos@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andrewcoelho/react-text-editor/issues"
+    "url": "https://github.com/vkefallinos/BookWriter/issues"
   },
-  "homepage": "http://andrewcoelho.github.io/react-text-editor/",
   "dependencies": {
     "classnames": "^2.2.5",
     "draft-js": "^0.7.0",
+    "draft-js-richbuttons-plugin": "^1.1.0",
+    "material-ui": "^0.16.1",
     "react": "^15.0.2",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.6.4",
@@ -42,7 +45,8 @@
   "babel": {
     "presets": [
       "es2015",
-      "react"
+      "react",
+      "stage-0"
     ]
   }
 }
